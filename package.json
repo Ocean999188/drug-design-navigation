@@ -1,7 +1,7 @@
 {
   "name": "drug-design-navigation",
   "version": "1.0.0",
-  "description": "药物设计导航平台 - 一站式药物设计网站导航服务",
+  "description": "Drug Design导航平台 - 一站式药物设计网站导航服务",
   "main": "index.html",
   "scripts": {
     "start": "python -m http.server 8000",
