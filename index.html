@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>药物设计导航平台 | Drug Design Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-flask"></i>
+                <span>药物设计导航</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active"><i class="fas fa-home"></i> 首页</a>
+                <a href="#categories"><i class="fas fa-th-large"></i> 分类</a>
+                <a href="#about"><i class="fas fa-info-circle"></i> 关于</a>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>药物设计一站式导航平台</h1>
+                <p class="subtitle">快速访问常用药物设计工具、数据库和计算平台</p>
+                <p class="description">整合了Xenosite、Xundrug等专业药物设计网站，点击按钮即可直达目标网站，提高科研效率</p>
+                
+                <!-- 搜索框 -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="搜索药物设计网站或工具...">
+                        <button id="search-btn">搜索</button>
+                    </div>
+                    <div class="search-tags">
+                        <span class="tag">分子对接</span>
+                        <span class="tag">ADMET预测</span>
+                        <span class="tag">药效团</span>
+                        <span class="tag">虚拟筛选</span>
+                        <span class="tag">分子动力学</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-icons">
+                    <i class="fas fa-molecule"></i>
+                    <i class="fas fa-dna"></i>
+                    <i class="fas fa-pills"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要网站导航区域 -->
+    <main class="main-content">
+        <div class="container">
+            <section class="featured-sites" id="categories">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i> 精选药物设计网站</h2>
+                    <p>点击按钮直接访问，无需手动输入网址</p>
+                </div>
+
+                <div class="sites-grid">
+                    <!-- Xenosite 网站 -->
+                    <div class="site-card" data-category="admet">
+                        <div class="site-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="site-info">
+                            <h3>Xenosite N-Dealkylation</h3>
+                            <p class="site-description">预测药物N-脱烷基化代谢位点的在线工具，基于机器学习算法，支持多种化合物格式输入。</p>
+                            <div class="site-tags">
+                                <span class="tag">ADMET预测</span>
+                                <span class="tag">代谢预测</span>
+                                <span class="tag">机器学习</span>
+                            </div>
+                        </div>
+                        <div class="site-actions">
+                            <a href="https://xenosite.org/ndealk" target="_blank" class="btn-primary">
+                                <i class="fas fa-external-link-alt"></i> 立即访问
+                            </a>
+                            <button class="btn-secondary" onclick="showDetails('xenosite')">
+                                <i class="fas fa-info-circle"></i> 详情
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Xundrug 网站 -->
+                    <div class="site-card" data-category="pka">
+                        <div class="site-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="site-info">
+                            <h3>Xundrug MolGpKa</h3>
+                            <p class="site-description">分子pKa预测平台，支持多质子化状态分析，适用于药物设计和物化性质预测。</p>
+                            <div class="site-tags">
+                                <span class="tag">pKa预测</span>
+                                <span class="tag">物化性质</span>
+                                <span class="tag">药物设计</span>
+                            </div>
+                        </div>
+                        <div class="site-actions">
+                            <a href="https://xundrug.cn/molgpka" target="_blank" class="btn-primary">
+                                <i class="fas fa-external-link-alt"></i> 立即访问
+                            </a>
+                            <button class="btn-secondary" onclick="showDetails('xundrug')">
+                                <i class="fas fa-info-circle"></i> 详情
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 更多网站示例 -->
+                    <div class="site-card" data-category="docking">
+                        <div class="site-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <div class="site-info">
+                            <h3>AutoDock Vina</h3>
+                            <p class="site-description">开源的分子对接软件，用于预测小分子与蛋白质受体的结合模式和亲和力。</p>
+                            <div class="site-tags">
+                                <span class="tag">分子对接</span>
+                                <span class="tag">虚拟筛选</span>
+                                <span class="tag">开源工具</span>
+                            </div>
+                        </div>
+                        <div class="site-actions">
+                            <a href="http://vina.scripps.edu" target="_blank" class="btn-primary">
+                                <i class="fas fa-external-link-alt"></i> 立即访问
+                            </a>
+                            <button class="btn-secondary" onclick="showDetails('autodock')">
+                                <i class="fas fa-info-circle"></i> 详情
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="site-card" data-category="database">
+                        <div class="site-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="site-info">
+                            <h3>PubChem</h3>
+                            <p class="site-description">NIH维护的化学物质数据库，包含超过1亿种化合物的结构、性质和生物活性数据。</p>
+                            <div class="site-tags">
+                                <span class="tag">化学数据库</span>
+                                <span class="tag">化合物信息</span>
+                                <span class="tag">生物活性</span>
+                            </div>
+                        </div>
+                        <div class="site-actions">
+                            <a href="https://pubchem.ncbi.nlm.nih.gov" target="_blank" class="btn-primary">
+                                <i class="fas fa-external-link-alt"></i> 立即访问
+                            </a>
+                            <button class="btn-secondary" onclick="showDetails('pubchem')">
+                                <i class="fas fa-info-circle"></i> 详情
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="site-card" data-category="admet">
+                        <div class="site-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="site-info">
+                            <h3>SwissADME</h3>
+                            <p class="site-description">综合ADMET性质预测工具，提供药物相似性、吸收、分布、代谢、排泄和毒性预测。</p>
+                            <div class="site-tags">
+                                <span class="tag">ADMET预测</span>
+                                <span class="tag">药物相似性</span>
+                                <span class="tag">免费工具</span>
+                            </div>
+                        </div>
+                        <div class="site-actions">
+                            <a href="http://www.swissadme.ch" target="_blank" class="btn-primary">
+                                <i class="fas fa-external-link-alt"></i> 立即访问
+                            </a>
+                            <button class="btn-secondary" onclick="showDetails('swissadme')">
+                                <i class="fas fa-info-circle"></i> 详情
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="site-card" data-category="visualization">
+                        <div class="site-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="site-info">
+                            <h3>PyMOL</h3>
+                            <p class="site-description">分子可视化系统，用于三维分子结构展示、分析和高质量图像生成。</p>
+                            <div class="site-tags">
+                                <span class="tag">分子可视化</span>
+                                <span class="tag">3D结构</span>
+                                <span class="tag">图像生成</span>
+                            </div>
+                        </div>
+                        <div class="site-actions">
+                            <a href="https://pymol.org" target="_blank" class="btn-primary">
+                                <i class="fas fa-external-link-alt"></i> 立即访问
+                            </a>
+                            <button class="btn-secondary" onclick="showDetails('pymol')">
+                                <i class="fas fa-info-circle"></i> 详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 分类过滤器 -->
+            <section class="category-filter">
+                <h3><i class="fas fa-filter"></i> 按类别筛选</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">全部</button>
+                    <button class="filter-btn" data-category="admet">ADMET预测</button>
+                    <button class="filter-btn" data-category="pka">pKa预测</button>
+                    <button class="filter-btn" data-category="docking">分子对接</button>
+                    <button class="filter-btn" data-category="database">数据库</button>
+                    <button class="filter-btn" data-category="visualization">可视化</button>
+                </div>
+            </section>
+
+            <!-- 关于区域 -->
+            <section class="about-section" id="about">
+                <div class="section-header">
+                    <h2><i class="fas fa-info-circle"></i> 关于本平台</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>为什么需要药物设计导航平台？</h3>
+                        <p>药物设计涉及多个专业网站和工具，研究人员经常需要在不同平台间切换。本平台整合了常用的药物设计相关网站，提供一站式导航服务，帮助研究人员快速访问所需工具，提高科研效率。</p>
+                        
+                        <h3>平台特点</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> <strong>快速访问</strong>：点击按钮直接跳转，无需手动输入网址</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>分类清晰</strong>：按功能分类，方便查找</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>详细描述</strong>：每个网站都有功能说明和使用场景</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>响应式设计</strong>：适配电脑、平板和手机</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>搜索功能</strong>：快速找到目标网站</li>
+                        </ul>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-link"></i>
+                            <h3>6+</h3>
+                            <p>整合网站</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-layer-group"></i>
+                            <h3>5+</h3>
+                            <p>功能分类</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-bolt"></i>
+                            <h3>一键</h3>
+                            <p>快速访问</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-flask"></i>
+                    <span>药物设计导航平台</span>
+                </div>
+                <p class="footer-description">为药物设计研究人员提供一站式网站导航服务</p>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-envelope"></i> 联系我们</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> 帮助中心</a>
+                    <a href="#"><i class="fas fa-shield-alt"></i> 隐私政策</a>
+                </div>
+                <p class="copyright">© 2025 药物设计导航平台 | 仅供科研使用</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 网站详情模态框 -->
+    <div class="modal" id="site-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">网站详情</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-content">
+                    <!-- 动态内容 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

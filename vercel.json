@@ -1,0 +1,53 @@
+{
+  "name": "drug-design-navigation",
+  "version": 2,
+  "builds": [
+    {
+      "src": "**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "regions": ["sfo1"],
+  "public": true,
+  "github": {
+    "enabled": true,
+    "autoAlias": true
+  },
+  "alias": ["drug-design-navigation.vercel.app"]
+}
