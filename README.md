@@ -3,7 +3,7 @@
 一个为药物设计研究人员提供一站式网站导航服务的平台。
 
 ## 🌐 在线访问
-- **GitHub Pages**: https://[你的用户名].github.io/drug-design-navigation/
+- **GitHub Pages**: https://Ocean999188.github.io/drug-design-navigation/
 - **Vercel**: https://drug-design-navigation.vercel.app
 
 ## 🚀 功能特点
